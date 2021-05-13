@@ -1,4 +1,4 @@
-# storm-analysis-IOAH
+# storm-analysis-kimlab
 STORM movie analysis code by IOAH.
 
 Special thanks to @[Zhuang lab](http://zhuang.harvard.edu/) for the original code.

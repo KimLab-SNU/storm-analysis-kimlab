@@ -91,7 +91,7 @@ def fitzRaw(h5_name, cutoff, wx_params, wy_params, z_min, z_max, z_step, wx_wy_f
     wy_field = wx_wy_fields[1]
     with saH5Py.SAH5Py(h5_name) as h5:
         pixel_size = h5.getPixelSize()
-        print("zfit pixel_size : ", pixel_size)
+        print("   z_fit pixel_size : ", pixel_size)
         for fnum, locs in h5.localizationsIterator():
             if((fnum%5000)==0):
                 print("   Processing frame", fnum)

@@ -118,6 +118,7 @@ def standardAnalysis(find_peaks, movie_reader, data_writer, parameters):
     print("version", storm_analysis.__version__)
     print()
     print("Peak finding")
+    print("Frame : (Current Frame) (Added Peaks) (Total Peaks)")
     if peakFinding(find_peaks, movie_reader, data_writer, parameters):
 
         # Do drift correction, tracking, and zfit (for '3d' model).

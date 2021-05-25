@@ -45,6 +45,8 @@ def overlayImage(movie_name, locs_name, frame_number, sx = 8, sy = 8):
         
     #ax.scatter(locs["x"], locs["y"], s = 200,
     ax.set_title("Overlay Image")
+    pyplot.xlabel("x")
+    pyplot.ylabel("y")
 
     pyplot.show()
 

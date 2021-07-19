@@ -47,8 +47,8 @@ class CRSplineToPSF3D(CRPSFObject):
     """
     A Spline based PSF Object for Cramer-Rao bounds calculations.
     """
-    def __init__(self, psf_filename = None, **kwds):
-
+    def __init__(self, psf_filename = None, pixel_size = None, **kwds): ### Modified 21.07.19.
+    # def __init__(self, psf_filename = None, **kwds): ...original by Hazen
         # Load the spline.
         with open(psf_filename, 'rb') as fp:
             spline_data = pickle.load(fp)
@@ -59,7 +59,8 @@ class CRSplineToPSF3D(CRPSFObject):
         self.zmin = spline_data["zmin"]
         self.spline = spline3D.Spline3D(spline_data["spline"], spline_data["coeff"])
 
-        self.delta_xy = self.pixel_size
+        self.delta_xy = pixel_size
+        # self.delta_xy = self.pixel_size ...original by Hazen
         self.delta_z = (self.getZMax() - self.getZMin())/float(self.spline.getSize())
 
     def getDeltaXY(self):

@@ -147,8 +147,7 @@ class CRBound3D(object):
            are maintaining this class.
     """
     def __init__(self, spline_file, pixel_size = 160.0):
-        self.cr_psf_object = CRSplineToPSF3D(psf_filename = spline_file, #spline_file = spline_file
-                                                                         # modified in 21.06.29.
+        self.cr_psf_object = CRSplineToPSF3D(spline_file = spline_file,
                                              pixel_size = pixel_size)
 
     def calcCRBound(self, background, photons, z_position = 0.0):

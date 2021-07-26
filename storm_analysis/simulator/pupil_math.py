@@ -709,24 +709,24 @@ if (__name__ == "__main__"):
     xy_end = int(xy_start + xy_size)
     psfs = psfs[:,xy_start:xy_end,xy_start:xy_end]
     
-    if True:
+    if False: #True by 210726
         tifffile.imsave("kz.tif", numpy.real(geo.kz).astype(numpy.float32))
             
-    if False:
+    if True: #False
         tifffile.imsave("pf_abs.tif", numpy.abs(pf).astype(numpy.float32))
         tifffile.imsave("pf_angle.tif", (180.0 * numpy.angle(pf)/numpy.pi + 180).astype(numpy.float32))
 
-    if False:
+    if True: #False
         with tifffile.TiffWriter(sys.argv[1]) as psf_tif:
             temp = (psfs/numpy.max(psfs)).astype(numpy.float32)
             psf_tif.save(temp)
 
-    if False:
+    if True: #False
         with open("z_offset.txt", "w") as fp:
             for i in range(z_values.size):
                 fp.write("1 {0:.6f}\n".format(1000.0 * z_values[i]))
         
-    if False:
+    if 0: #False
         psfs = (65000.0 * (psfs/numpy.max(psfs))).astype(numpy.uint16)
         psf_dict = {"pixel_size" : pixel_size,
                     "wavelength" : wavelength,

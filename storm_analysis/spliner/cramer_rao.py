@@ -60,6 +60,9 @@ class CRSplineToPSF3D(CRPSFObject):
         self.spline = spline3D.Spline3D(spline_data["spline"], spline_data["coeff"])
 
         self.delta_xy = pixel_size
+        print("pixel_size = ", pixel_size)
+        self.delta_xy = self.pixel_size
+        print("self.pixel_szie = ", self.pixel_size)
         # self.delta_xy = self.pixel_size ...original by Hazen
         self.delta_z = (self.getZMax() - self.getZMin())/float(self.spline.getSize())
 

@@ -97,7 +97,8 @@ def alignPSFs(psfs, max_xy = 2, max_z = 2, max_reps = 10, verbose = True):
             
         # Stop if the PSFs are no longer being adjusted.
         if not moving:
-            print("---Stop aligning PSFs as they are no longer being adjusted---")
+            print("!- Stop aligning PSFs as they are no longer being adjusted")
+            print()
             break
         
         i += 1

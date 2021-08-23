@@ -144,7 +144,7 @@ def measurePSFBeads(movie_name, zfile_name, beads_file, psf_name, aoi_size = 12,
     #   for the height anyway.
     #
     print("---Normalize PSF---")
-    for i in range(average_psf.shape[0]):\
+    for i in range(average_psf.shape[0]):
         print("- Check the samples in each z plane (frame) -")
         print("z plane {0:0d} has {1:0d} samples".format(i, total_samples[i]))
         

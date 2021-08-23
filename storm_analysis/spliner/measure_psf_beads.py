@@ -85,7 +85,6 @@ def measurePSFBeads(movie_name, zfile_name, beads_file, psf_name, aoi_size = 12,
     total_samples = None
     psfs = []
     for i in range(bead_x.size):
-        print("z_index : ", z_index)
         [psf, samples] = measurePSFUtils.measureSinglePSFBeads(frame_reader,
                                                                z_index,
                                                                aoi_size,
@@ -145,7 +144,8 @@ def measurePSFBeads(movie_name, zfile_name, beads_file, psf_name, aoi_size = 12,
     #   for the height anyway.
     #
     print("---Normalize PSF---")
-    for i in range(average_psf.shape[0]):
+    for i in range(average_psf.shape[0]):\
+        print("- Check the samples in each z plane (frame) -")
         print("z plane {0:0d} has {1:0d} samples".format(i, total_samples[i]))
         
         section_sum = numpy.sum(numpy.abs(average_psf[i,:,:]))
@@ -156,6 +156,7 @@ def measurePSFBeads(movie_name, zfile_name, beads_file, psf_name, aoi_size = 12,
             average_psf[i,:,:] = average_psf[i,:,:]/section_sum
 
     # Normalize to unity maximum height.
+    print("- Normalize to unity maximum height  -")
     if (numpy.max(average_psf) > 0.0):
         average_psf = average_psf/numpy.max(average_psf)
     else:
@@ -163,6 +164,7 @@ def measurePSFBeads(movie_name, zfile_name, beads_file, psf_name, aoi_size = 12,
     
     # Save PSF (in image form).
     if True:
+        print("Saving PSF (in tif file...)")
         tif_name = os.path.splitext(psf_name)[0]
         with tifffile.TiffWriter(tif_name + "_beads.tif") as tf:
             for i in range(average_psf.shape[0]):
@@ -191,7 +193,7 @@ def measurePSFBeads(movie_name, zfile_name, beads_file, psf_name, aoi_size = 12,
                 "zvals" : z_vals}
 
     pickle.dump(psf_dict, open(psf_name, 'wb'))
-
+    print("Measuring PSF beads finished.")
 
 if (__name__ == "__main__"):
 

@@ -85,6 +85,7 @@ def measurePSFBeads(movie_name, zfile_name, beads_file, psf_name, aoi_size = 12,
     total_samples = None
     psfs = []
     for i in range(bead_x.size):
+        print("z_index : ", z_index)
         [psf, samples] = measurePSFUtils.measureSinglePSFBeads(frame_reader,
                                                                z_index,
                                                                aoi_size,
@@ -124,7 +125,7 @@ def measurePSFBeads(movie_name, zfile_name, beads_file, psf_name, aoi_size = 12,
     # view that are not completely flat.
     #
     if refine:
-        print("Refining PSF alignment.")
+        print("---Refining PSF alignment---")
 
         # Normalize each PSF by the number of z sections.
         for psf in psfs:
@@ -143,6 +144,7 @@ def measurePSFBeads(movie_name, zfile_name, beads_file, psf_name, aoi_size = 12,
     #   true. Not clear how important this is as Spliner will fit
     #   for the height anyway.
     #
+    print("---Normalize PSF---")
     for i in range(average_psf.shape[0]):
         print("z plane {0:0d} has {1:0d} samples".format(i, total_samples[i]))
         

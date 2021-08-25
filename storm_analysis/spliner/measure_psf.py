@@ -121,7 +121,7 @@ def measurePSF(movie_name, zfile_name, movie_h5_name, psf_name, want2d = False, 
                 if z_sclr.inRange(zi):
 
                     # Extract PSF.
-                    psf = measurePSFUtils.extractAOI(image, aoi_size, xf, yf)
+                    psf = measurePSFUtils.extractAOI(image, aoi_size, xf, yf) # extractAOI(frame, aoi_size, xf, yf, zoom = 1) bv IOAH.
 
                     # Add to average psf accumulator
                     average_psf[zi,:,:] += psf

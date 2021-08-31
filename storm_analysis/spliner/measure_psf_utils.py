@@ -26,8 +26,8 @@ class ZScaler(object):
         assert(z_range >= z_step), "The z range must be greater than or equal to the step size."
     
         # Assert that the z_step size is a multiple of the z_range.
-        assert ((int(z_range*1.0e+3) % int(z_step*1.0e+3)) == 0), "The z range must be a multiple of the z step."
-
+        assert ((round((z_range*1.0e+3) % (z_step*1.0e+3))) == 0), "The z range must be a multiple of the z step."
+                # (int(z_range*1.0e+3) % int(z_step*1.0e+3) --> original by Hazen (modified '21.08.31)
         self.z_mid = int(round(z_range/z_step))
         self.z_max = 2 * self.z_mid + 1
         self.z_step = z_step

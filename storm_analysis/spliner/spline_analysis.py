@@ -49,7 +49,6 @@ def analyze(movie_name, mlist_name, settings_name):
     data_writer = analysisIO.DataWriterHDF5(data_file = mlist_name,
                                             parameters = parameters,
                                             sa_type = "Spliner")
-    print("Cular456")
         
     std_analysis.standardAnalysis(finder,
                                   movie_reader,

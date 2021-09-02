@@ -30,8 +30,8 @@ def xyzDriftCorrection(hdf5_filename, drift_filename, step, scale, z_min, z_max,
     #        might not actually be true. For now we're just skipping
     #        over all the empty frames, but it might make more sense
     #        not to do anything at all.
-    #
-    z_bins = int((z_max - z_min)/0.05)
+    # 
+    z_bins = int(round((z_max - z_min)/0.05)) ### supposed to be int ... modified by IOAH
     h5_dc = driftUtils.SAH5DriftCorrection(filename = hdf5_filename,
                                            scale = scale,
                                            z_bins = z_bins)

@@ -190,7 +190,7 @@ def xyzDriftCorrection(hdf5_filename, drift_filename, step, scale, z_min, z_max,
 
         z.append(-dz)
 
-        print("{0:d} {1:d} {2:d} {3:0.3f} {4:0.3f} {5:0.3f}".format(bin_edges[i],
+        print("frame {0:d} ~ {1:d} = xy_curr - {2:d}, dx - {3:0.3f}, dy - {4:0.3f}, dz - {5:0.3f}".format(bin_edges[i],
                                                                     bin_edges[i+1],
                                                                     numpy.sum(xy_curr),
                                                                     dx, dy, dz))

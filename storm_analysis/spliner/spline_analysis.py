@@ -54,8 +54,6 @@ def analyze(movie_name, mlist_name, settings_name):
                                   movie_reader,
                                   data_writer,
                                   parameters)
-    print("Hello")
-
 
 if (__name__ == "__main__"):
 

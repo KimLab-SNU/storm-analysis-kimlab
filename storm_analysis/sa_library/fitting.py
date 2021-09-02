@@ -209,7 +209,7 @@ class PeakFinder(object):
         self.background = None                                           # Current estimate of the image background.
         self.bg_filter = None                                            # Background MatchedFilter object.
         self.camera_variance = None                                      # Camera variance, only relevant for a sCMOS camera.
-        self.check_mode = True  ###modified by IOAH                      # Run in diagnostic mode. Only useful for debugging.
+        self.check_mode = False                                          # Run in diagnostic mode. Only useful for debugging.
         self.image = None                                                # The original image.
         self.margin = None                                               # Size of the unanalyzed "edge" around the image.
         self.mfinder = None                                              # The maxima finder.
@@ -529,7 +529,7 @@ class PeakFinderArbitraryPSF(PeakFinder):
         for zval in self.fg_mfilter_zval:
             assert self.psf_object.isValidZ(zval)
             self.z_values.append(self.psf_object.getScaledZ(zval))
-
+            
         # Configure maxima finder.
         #
         self.mfinder = iaUtilsC.MaximaFinder(margin = self.margin,
@@ -616,7 +616,7 @@ class PeakFinderArbitraryPSF(PeakFinder):
         #    still probably not the correct way to handle this.
         #
         bg_var = self.background + numpy.abs(fit_peaks_image)
-        print(self.background)
+        
         # Add camera variance if set.
         if self.camera_variance is not None:
             bg_var += self.camera_variance

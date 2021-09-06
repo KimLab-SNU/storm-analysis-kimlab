@@ -36,6 +36,7 @@ class Spline3D(spline1D.Spline):
         # Create 2D splines in the "yz-plane".
         #
         yzs = []
+        print("   - Create 2D splines in the yz-plane")
         for i in range(size):
             if verbose:
                 print("  {0:0d} of {1:0d}".format(i, size-1))
@@ -45,6 +46,7 @@ class Spline3D(spline1D.Spline):
         # Use splines in the "yz-plane" to create splines on the
         # "x axis" with sub-integer spacing.
         #
+        print("   - Create splines on the x axis")
         xs = []
         cx = 0.0
         cy = 0.0

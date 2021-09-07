@@ -60,7 +60,7 @@ class CRSplineToPSF3D(CRPSFObject):
         self.spline = spline3D.Spline3D(spline_data["spline"], spline_data["coeff"])
 
         self.delta_xy = pixel_size
-        print("pixel_size = ", self.delta_xy)
+        # print("pixel_size = ", self.delta_xy)
         # self.delta_xy = self.pixel_size ...original by Hazen
         self.delta_z = (self.getZMax() - self.getZMin())/float(self.spline.getSize())
         
@@ -208,7 +208,8 @@ def calcCRBound3D(cr_psf_object, background, photons, z_value):
         
     return crlb
 
-    
+def calcphotons(cr_psf_object, background, photons, z_value):
+
 if (__name__ == "__main__"):
 
     import argparse

@@ -264,6 +264,7 @@ class PeakFinder(object):
         else:
             image = self.image - fit_peaks_image
             self.background = self.backgroundEstimator(image)
+            print("background 3: ", self.background)
 
         if self.check_mode:
             with tifffile.TiffWriter("bg_estimate.tif") as tf:

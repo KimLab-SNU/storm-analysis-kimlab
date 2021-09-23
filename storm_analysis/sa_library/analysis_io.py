@@ -309,7 +309,6 @@ class MovieReader(object):
         super(MovieReader, self).__init__(**kwds)
 
         self.background = None
-        print("background 1: ", self.background)
         self.bg_estimator = None
         self.cur_frame = -1
         self.frame_reader = frame_reader
@@ -322,7 +321,6 @@ class MovieReader(object):
         self.frame_reader.close()
         
     def getBackground(self):
-        print("background 2: ", self.background)
         return self.background
 
     def getCurrentFrameNumber(self):

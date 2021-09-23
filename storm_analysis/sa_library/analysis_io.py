@@ -350,6 +350,7 @@ class MovieReader(object):
             # Update background estimate.
             if self.bg_estimator is not None:
                 self.background = self.bg_estimator.estimateBG(self.cur_frame)
+                print("background 3 : ", self.backgrounds)
 
             # Load frame.
             self.frame = self.frame_reader.loadAFrame(self.cur_frame)

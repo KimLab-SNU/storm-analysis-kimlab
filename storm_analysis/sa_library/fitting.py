@@ -264,7 +264,7 @@ class PeakFinder(object):
         else:
             image = self.image - fit_peaks_image
             print("orig image: ", self.image)
-            print("fit_peaks_image: ". fit_peaks_image)
+            print("fit_peaks_image: ", fit_peaks_image)
             print("result image: ", image)
             self.background = self.backgroundEstimator(image)
             print("background 3: ", self.background)

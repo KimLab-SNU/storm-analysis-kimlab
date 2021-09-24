@@ -353,6 +353,10 @@ class ParametersCommon(Parameters):
                             
                             Options are .bin and .txt.
                             Use a comma separated list if you want both. i.e. ".bin, .txt"."""],
+
+            "check_mode" : ["bool", None,
+                            "Self check mode."],
+
             })
 
     def getZRange(self):

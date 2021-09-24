@@ -278,7 +278,7 @@ class MultiFitter(object):
     def __init__(self,
                  rqe = None,
                  scmos_cal = None,
-                 verbose = True #False, (original, modified by ioah), 
+                 verbose = True, #False, (original, modified by ioah), 
                  min_z = None,
                  max_z = None,
                  **kwds):

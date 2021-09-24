@@ -267,7 +267,7 @@ class PeakFinder(object):
             self.background = self.backgroundEstimator(image)
 
         if self.check_mode:
-            with tifffile.TiffWriter("bg_estimate.tif".format(num)) as tf:
+            with tifffile.TiffWriter("bg_estimate.tif") as tf:
                 tf.save(self.background.astype(numpy.float32))
 
         return self.background

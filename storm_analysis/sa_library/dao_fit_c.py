@@ -242,6 +242,7 @@ def printFittingInfo(mfit, spacing = "  "):
     """
     Print out some of the information the C fitting library keeps track of.
     """
+    print("--- Fitting ---")
     print(spacing, mfit.contents.n_dposv, "fits reset due to Cholesky failure.")
     print(spacing, mfit.contents.n_margin, "fits reset due to image margin.")
     print(spacing, mfit.contents.n_neg_fi, "fits reset due to negative value in fit function.")
@@ -277,7 +278,7 @@ class MultiFitter(object):
     def __init__(self,
                  rqe = None,
                  scmos_cal = None,
-                 verbose = False,
+                 verbose = True #False, (original, modified by ioah), 
                  min_z = None,
                  max_z = None,
                  **kwds):

@@ -263,11 +263,7 @@ class PeakFinder(object):
         # Otherwise make our own estimate.
         else:
             image = self.image - fit_peaks_image
-            print("orig image: ", self.image)
-            print("fit_peaks_image: ", fit_peaks_image)
-            print("result image: ", image)
             self.background = self.backgroundEstimator(image)
-            print("background 3: ", self.background)
 
         if self.check_mode:
             with tifffile.TiffWriter("bg_estimate.tif") as tf:

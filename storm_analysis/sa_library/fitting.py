@@ -205,13 +205,12 @@ class PeakFinder(object):
         self.sigma = parameters.getAttr("sigma")                         # Peak sigma (in pixels).
         self.threshold = parameters.getAttr("threshold")                 # Peak minimum threshold in units of sigma (as in "3 sigma effect").
         self.check_mode = parameters.getAttr("check_mode")
-        print("self.check_mode = ", self.check_mode)
         
         # Other member variables.
         self.background = None                                           # Current estimate of the image background.
         self.bg_filter = None                                            # Background MatchedFilter object.
         self.camera_variance = None                                      # Camera variance, only relevant for a sCMOS camera.
-        #self.check_mode = True #False                                          # Run in diagnostic mode. Only useful for debugging.
+        #self.check_mode = True #False                                   # Run in diagnostic mode. Only useful for debugging.
         self.image = None                                                # The original image.
         self.margin = None                                               # Size of the unanalyzed "edge" around the image.
         self.mfinder = None                                              # The maxima finder.
@@ -881,6 +880,7 @@ class PeakFinderFitter(object):
 
         self.peak_finder.newImage(image)
         self.peak_fitter.newImage(image)
+        print("image shape : ", image.shape)
 
         for i in range(self.peak_finder.iterations):
 

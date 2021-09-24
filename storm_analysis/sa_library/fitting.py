@@ -880,7 +880,6 @@ class PeakFinderFitter(object):
 
         self.peak_finder.newImage(image)
         self.peak_fitter.newImage(image)
-        print("movie shape : ", movie_reader.getFrame().shape)
 
         for i in range(self.peak_finder.iterations):
 

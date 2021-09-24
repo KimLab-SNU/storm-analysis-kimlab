@@ -204,7 +204,7 @@ class PeakFinder(object):
         self.iterations = parameters.getAttr("iterations")               # Maximum number of cycles of peak finding, fitting and subtraction to perform.
         self.sigma = parameters.getAttr("sigma")                         # Peak sigma (in pixels).
         self.threshold = parameters.getAttr("threshold")                 # Peak minimum threshold in units of sigma (as in "3 sigma effect").
-        self.check_mode = parameters.getAttr("check_mode")
+        self.check_mode = parameters.getAttr("check_model")
         
         # Other member variables.
         self.background = None                                           # Current estimate of the image background.

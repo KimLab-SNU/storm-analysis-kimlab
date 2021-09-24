@@ -247,7 +247,7 @@ class PeakFinder(object):
         if self.bg_filter is not None:
             self.bg_filter.cleanup()
 
-    def estimateBackground(self, fit_peaks_image, bg_estimate):
+    def estimateBackground(self, fit_peaks_image, bg_estimate, num): ## modified by ioah
         """
         Estimate the background for the image.
         
@@ -266,7 +266,7 @@ class PeakFinder(object):
             self.background = self.backgroundEstimator(image)
 
         if self.check_mode:
-            with tifffile.TiffWriter("bg_estimate.tif") as tf:
+            with tifffile.TiffWriter("bg_estimate_frame_{}.tif".format(num)) as tf:
                 tf.save(self.background.astype(numpy.float32))
 
         return self.background
@@ -883,7 +883,7 @@ class PeakFinderFitter(object):
         for i in range(self.peak_finder.iterations):
 
             # Update background estimate.
-            background = self.peak_finder.estimateBackground(fit_peaks_image, bg_estimate)
+            background = self.peak_finder.estimateBackground(fit_peaks_image, bg_estimate, i) ## modified by ioah.
 
             # Find new peaks.
             [new_peaks, peaks_type, done] = self.peak_finder.findPeaks(fit_peaks_image)

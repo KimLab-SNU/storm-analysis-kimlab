@@ -354,7 +354,7 @@ class ParametersCommon(Parameters):
                             Options are .bin and .txt.
                             Use a comma separated list if you want both. i.e. ".bin, .txt"."""],
 
-            "check_mode" : ["bool", None,
+            "check_mode" : ["int", None,
                             "Self check mode."],
 
             })

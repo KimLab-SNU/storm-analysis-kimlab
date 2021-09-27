@@ -8,6 +8,7 @@ Hazen 09/17
 import numpy
 import os
 import sys
+import tifffile
 
 from xml.etree import ElementTree
 

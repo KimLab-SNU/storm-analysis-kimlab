@@ -242,15 +242,23 @@ class FrameReader(object):
         return self.movie_data.hashID()
 
     def loadAFrame(self, frame_number):
-
+        ###########################################################
+        print("camera gain : ", self.gain)
+        print("camera offset : ", self.offset)
+        print("self.rqe : ", self.rqe)
         # Load frame.
         frame = self.movie_data.loadAFrame(frame_number)
+        print("Frame #{}: {}".format(frame_number,frame))
 
+        if True:
+            with tifffile.TiffWriter("frame_#{}.tif".format(frame_number)) as tf:
+                tf.save(frame.astype(numpy.float32))
+                
         # Convert from ADU to photo-electrons and correct for RQE.
         frame = (frame - self.offset) * (self.gain * self.rqe)
 
-        ###########################################################
-        print("Frame #{}: {}".format(frame_number,frame))
+        
+        print("Converted Frame #{}: {}".format(frame_number,frame))
 
         if True:
             with tifffile.TiffWriter("converted_frame_#{}.tif".format(frame_number)) as tf:

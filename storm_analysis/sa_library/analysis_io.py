@@ -254,7 +254,7 @@ class FrameReader(object):
 
         if True:
             with tifffile.TiffWriter("converted_frame_#{}.tif".format(frame_number)) as tf:
-                tf.save(self.frame.astype(numpy.float32))
+                tf.save(frame.astype(numpy.float32))
         ###########################################################
                 
         # Set all values less than 1.0 to 1.0 as we are doing MLE fitting which

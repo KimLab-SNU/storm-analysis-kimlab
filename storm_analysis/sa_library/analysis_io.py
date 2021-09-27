@@ -243,14 +243,15 @@ class FrameReader(object):
 
     def loadAFrame(self, frame_number):
         ###########################################################
-        print("camera gain : ", self.gain)
-        print("camera offset : ", self.offset)
-        print("self.rqe : ", self.rqe)
+        ### Modified by ioah.
+        #print("camera gain : ", self.gain)
+        #print("camera offset : ", self.offset)
+        #print("self.rqe : ", self.rqe)
         # Load frame.
         frame = self.movie_data.loadAFrame(frame_number)
-        print("Frame #{}: {}".format(frame_number,frame))
+        #print("Frame #{}: {}".format(frame_number,frame))
 
-        if True:
+        if False:
             with tifffile.TiffWriter("frame_#{}.tif".format(frame_number)) as tf:
                 tf.save(frame.astype(numpy.float32))
                 
@@ -258,9 +259,9 @@ class FrameReader(object):
         frame = (frame - self.offset) * (self.gain * self.rqe)
 
         
-        print("Converted Frame #{}: {}".format(frame_number,frame))
+        #print("Converted Frame #{}: {}".format(frame_number,frame))
 
-        if True:
+        if False:
             with tifffile.TiffWriter("converted_frame_#{}.tif".format(frame_number)) as tf:
                 tf.save(frame.astype(numpy.float32))
         ###########################################################

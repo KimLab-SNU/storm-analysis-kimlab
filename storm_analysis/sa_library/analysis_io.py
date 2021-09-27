@@ -248,6 +248,14 @@ class FrameReader(object):
         # Convert from ADU to photo-electrons and correct for RQE.
         frame = (frame - self.offset) * (self.gain * self.rqe)
 
+        ###########################################################
+        print("Frame #{}: {}".format(frame_number,frame))
+
+        if True:
+            with tifffile.TiffWriter("converted_frame_#{}.tif".format(frame_number)) as tf:
+                tf.save(self.frame.astype(numpy.float32))
+        ###########################################################
+                
         # Set all values less than 1.0 to 1.0 as we are doing MLE fitting which
         # has zero tolerance for negative numbers..
         #

@@ -27,7 +27,7 @@ import storm_analysis.sa_library.parameters as params
 import storm_analysis.spliner.measure_psf_utils as measurePSFUtils
 
 
-def measurePSFBeads(movie_name, zfile_name, beads_file, psf_name, aoi_size = 12, pixel_size = 0.1, refine = False, z_range = 0.6, z_step = 0.05, gain = 1, offset = 0):
+def measurePSFBeads(movie_name, zfile_name, beads_file, psf_name, aoi_size = 12, pixel_size = 0.1, refine = False, z_range = 0.6, z_step = 0.05, camera_gain = 1, camera_offset = 0):
     """
     movie_name - The name of the movie, presumably a z stack for PSF measurement.
     zfile_name - The text file containing the z offsets (in microns) for each frame.
@@ -89,8 +89,8 @@ def measurePSFBeads(movie_name, zfile_name, beads_file, psf_name, aoi_size = 12,
     ################################################################
     # Modified by ioah.
     frame_reader = analysisIO.FrameReaderStd(movie_file = movie_name,
-                                             camera_gain = gain,
-                                             camera_offset = offset)
+                                             camera_gain = camera_gain,
+                                             camera_offset = camera_offset)
     
     
     # Measure PSFs for each bead.

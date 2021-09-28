@@ -86,12 +86,13 @@ def measurePSFBeads(movie_name, zfile_name, beads_file, psf_name, aoi_size = 12,
     #frame_reader = analysisIO.FrameReaderStd(movie_file = movie_name,
     #                                         camera_gain = 1.0,
     #                                         camera_offset = 0.0)
-    ################################################################
+    #####################################
+    #####################################
     # Modified by ioah.
     frame_reader = analysisIO.FrameReaderStd(movie_file = movie_name,
                                              camera_gain = camera_gain,
                                              camera_offset = camera_offset)
-    
+    #################################################################
     
     # Measure PSFs for each bead.
     #

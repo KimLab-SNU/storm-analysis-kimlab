@@ -92,7 +92,7 @@ def psfToSpline(psf_name, spline_name, s_size):
             x += 1.0
 
         print("Calculating spline coefficients.")
-        spline = spline3D.Spline3D(np_spline, verbose = False)
+        spline = spline3D.Spline3D(np_spline, verbose = True)
 
         if True:
             import tifffile

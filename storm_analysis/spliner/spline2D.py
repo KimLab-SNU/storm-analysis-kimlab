@@ -13,7 +13,7 @@ import storm_analysis.spliner.spline1D as spline1D
 
 class Spline2D(spline1D.Spline):
 
-    def __init__(self, d, coeff = False, verbose = True):
+    def __init__(self, d, coeff = False, verbose = False):
 
         if (d.shape[0] != d.shape[1]):
             assert "input matrix must be square!"

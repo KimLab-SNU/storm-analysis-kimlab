@@ -37,7 +37,7 @@ def psfImages(psf_filename, verbose = True, sx = 12, sy = 4):
     ax1.set_title("PSF XY slice")
 
     ax2 = fig.add_subplot(1,3,2)
-    ax2.imshow(psf[:,mid_xy+2,:],
+    ax2.imshow(psf[:,mid_xy,:],
                interpolation = 'none', 
                extent = [xy_min, xy_max, z_min, z_max],
                cmap = "gray")

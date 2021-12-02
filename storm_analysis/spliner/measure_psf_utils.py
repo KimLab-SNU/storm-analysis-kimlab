@@ -9,7 +9,7 @@ Hazen 03/18
 import numpy
 import scipy
 import scipy.ndimage
-
+import math
 import storm_analysis.sa_library.imagecorrelation as imgCorr
 
 
@@ -26,7 +26,8 @@ class ZScaler(object):
         assert(z_range >= z_step), "The z range must be greater than or equal to the step size."
     
         # Assert that the z_step size is a multiple of the z_range.
-        assert ((round((z_range*1.0e+3) % (z_step*1.0e+3))) == 0), "The z range must be a multiple of the z step."
+        assert ((math.floor((z_range*1.0e+3) % (z_step*1.0e+3))) == 0), "The z range must be a multiple of the z step."
+                # round((z_range*1.0e+3) % (z_step*1.0e+3))) --> modified 21.12.02.
                 # (int(z_range*1.0e+3) % int(z_step*1.0e+3) --> original by Hazen (modified '21.08.31)
         self.z_mid = int(round(z_range/z_step))
         self.z_max = 2 * self.z_mid + 1
